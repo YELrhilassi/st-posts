@@ -43,6 +43,13 @@ function generateNextId(idSet) {
     idSet.add(String(newId));
     return newId;
 }
+function slugify(filename) {
+    return filename
+        .toLowerCase()
+        .replace(/\.[^/.]+$/, "") // remove extension
+        .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphens
+        .replace(/^-+|-+$/g, ""); // trim leading/trailing hyphens
+}
 function getTopLevelFolder(filePath) {
     const parts = filePath.split(path.sep).filter(Boolean);
     return parts[0];
@@ -66,15 +73,27 @@ function run() {
     });
     yamlFiles.forEach((filePath) => {
         const content = readFileSync(filePath, "utf-8");
-        const data = yaml.load(content);
+        const data = yaml.load(content) || {};
         const folder = getTopLevelFolder(filePath);
+        let updated = false;
         if (!data?.id) {
             const idSet = folderIdSets.get(folder);
             const newId = generateNextId(idSet);
-            const newData = { id: newId, ...data };
-            const updatedYaml = yaml.dump(newData, { lineWidth: -1 });
-            writeFileSync(filePath, updatedYaml, "utf-8");
+            data.id = newId;
+            updated = true;
             console.log(`✅ Added id: ${newId} → ${filePath}`);
+        }
+        if (!data?.slug) {
+            const slug = slugify(path.basename(filePath));
+            data.slug = slug;
+            updated = true;
+            console.log(`✅ Added slug: ${slug} → ${filePath}`);
+        }
+        if (updated) {
+            const { id, slug, ...rest } = data;
+            const orderedData = { id, slug, ...rest };
+            const updatedYaml = yaml.dump(orderedData, { lineWidth: -1 });
+            writeFileSync(filePath, updatedYaml, "utf-8");
         }
     });
 }
