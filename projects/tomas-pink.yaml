@@ -14,6 +14,28 @@ solution: |
   We developed a refined visual language that maintained the brand's signature pink while introducing a more contemporary typography system and photography style. The digital experience was completely reimagined with a focus on storytelling and product discovery.
 results: |
   The rebrand resulted in a 45% increase in online engagement and a 30% boost in e-commerce sales within the first quarter after launch. The new identity received industry recognition, including a nomination for Best Brand Refresh at the Design Awards.
+layout: journal
+paragraphs:
+  - id: "intro"
+    title: "The Challenge"
+    content: "Thomas Pink, a heritage luxury clothing brand, found itself at a crossroads. While the brand had maintained its reputation for quality and craftsmanship, it was struggling to connect with a younger, digitally-savvy audience. The challenge was clear: how to modernize the brand's appeal without losing the essence that made it special?"
+    images: ["/placeholder.svg?height=600&width=800"]
+    imageAlignment: "right"
+  - id: "research"
+    title: "Research & Discovery"
+    content: "Our research revealed that Thomas Pink's core audience valued tradition and quality, but they also wanted a brand that felt relevant to their modern lifestyle. We conducted extensive interviews with both existing customers and potential new audiences to understand their needs and aspirations."
+    images: ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"]
+    imageAlignment: "left"
+  - id: "solution"
+    title: "The Solution"
+    content: "We developed a comprehensive brand refresh that maintained the brand's signature pink while introducing a more contemporary typography system and photography style. The digital experience was completely reimagined with a focus on storytelling and product discovery."
+    images: ["/placeholder.svg?height=600&width=800"]
+    imageAlignment: "right"
+  - id: "results"
+    title: "Results & Impact"
+    content: "The rebrand resulted in a 45% increase in online engagement and a 30% boost in e-commerce sales within the first quarter after launch. The new identity received industry recognition, including a nomination for Best Brand Refresh at the Design Awards."
+    images: ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"]
+    imageAlignment: "left"
 images:
   - /placeholder.svg?height=600&width=800
   - /placeholder.svg?height=600&width=800
